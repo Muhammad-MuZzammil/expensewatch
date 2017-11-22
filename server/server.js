@@ -1,4 +1,4 @@
-var express = yrequire('express');
+var express = require('express');
 var app = express();
 var bodParser = require('body-parser');
 var morgan = require('morgan');
@@ -66,7 +66,7 @@ apiRoutes.get('/', function (req, res) {
 // User
 apiRoutes.post('/user/:id', user.getuserDetails); // API returns user Details
 apiRoutes.put('/user/:id', user.updateUser); // API updates user Details
-apiRoutes.put('/password/:id', user.updatePassword); // API updates user password
+apiRoutes.put('/password/:id', user.updatePassowrd); // API updates user password
 
 // Expense
 

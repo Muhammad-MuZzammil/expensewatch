@@ -179,7 +179,7 @@ exports.updateUser = function (req, res, next) {
 
 
 exports.updatePassowrd = function (req, res, next) {
-  var userid = req.params.id,
+  var userid = req.params.id;
   var oldpassword = req.body.oldpassword;
   var password = req.body.password;
 
