@@ -100,7 +100,7 @@ exports.getexpense = function (req, res, next) {
 }
 
 exports.expensetotal = function (req, res, next) {
-  const uid = req.params.id || req.param('uname');
+  const uid = req.params.id //|| req.param('uname');
   const rptype = req.body.report || req.param('report');
   const from_dt = req.body.startdt || req.param('startdt');
   const to_dt = req.body.enddt || req.param('enddt');
@@ -127,8 +127,8 @@ exports.expensetotal = function (req, res, next) {
     match,
     {
       "$group": {
-        "id": 1,
-        "total": { "Sum": "$expenseamt" }
+        "_id": 1,
+        "total": { "$sum": "$expenseamt" }
       }
     }
   ],
@@ -136,7 +136,7 @@ exports.expensetotal = function (req, res, next) {
       if (err) {
         res.status(400).json({
           success: true,
-          message: 'Error processing request' + err
+          message: 'Error processing request ' + err
         });
       }
       res.status(201).json({
@@ -171,6 +171,7 @@ exports.expensereport = function (req, res, next) {
     sortby = 'expensedate';
   }
   var offset = (page - 1) * limit;
+
   if (!uid || !rptype) {
     res.status(422).send({ error: 'Posted data is not correct or incompleted' + err });
   }

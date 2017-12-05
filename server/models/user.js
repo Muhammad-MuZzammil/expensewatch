@@ -12,14 +12,14 @@ const UserSchema = new mongoose.Schema({
 
 });
 
-// pre-saveof user's hash password to database
+// pre-save of user's hash password to database
 UserSchema.pre('save', function (next) {
   const users = this;
   SALT_FACTOR = 5;
 
   if (!users.isModified('password')) { return next(); }
 
-  bcrypt.gensalt(SALT_FACTOR, (err, salt) => {
+  bcrypt.genSalt(SALT_FACTOR, (err, salt) => {
     if (err) return next(err);
 
     bcrypt.hash(users.password, salt, null, (err, hash) => {

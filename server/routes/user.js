@@ -48,7 +48,7 @@ exports.signup = function (req, res, next) {
 
 exports.login = function (req, res, next) {
   // find the user
-  User.findOne({ username: username }, function (err, user) {
+  User.findOne({ username: req.body.username }, function (err, user) {
     if (err) {
       res.status(400).json({
         success: false,
@@ -149,7 +149,7 @@ exports.updateUser = function (req, res, next) {
   }
 
   else {
-    User.findById({ userid }).exec(function (err, user) {
+    User.findById(userid).exec(function (err, user) {
       if (err) {
         res.status(400).json({
           success: false,
