@@ -1,3 +1,37 @@
-<p>
-  register works!
-</p>
+<div class="container paggecontainer">
+  <div class="page-header">
+    <h1>Reister</h1>
+  </div>
+
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)" class="form-horizontal" novalidate autoComplete="off">
+    <div class="form-group" [ngClass]="{'has-error':registerForm.get('firstname').invalid && registerForm.get('firstname').dirty}">
+      <label for="fname" class="col-sm-2 control-label">First Name <sup>*</sup></label>
+      <div class="input-group col-sm-10">
+        <div class="input-group-addon"><i clas s="glyphicon gliphicon-font"></i></div>
+        <input type="text" class="form-control" [formControl]="firstname" id="fname" placeholder="First Name">
+      </div>
+      <div class="text-danger" *ngIf="registerForm.get('firstname').dirty && registerForm.get('firstname').errors">
+        <span class="col-sm-2"></span>
+        <span class="col-sm-10" style="padding:4px 0 0" *ngIf="registerForm.get('firstname').errors.required">
+          Please enter your firstname
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-error':registerForm.get('lastname').invalid && registerForm.get('lastname').dirty}">
+      <label for="lname" class="col-sm-2 control-label">Last Name <sup>*</sup></label>
+      <div class="input-group col-sm-10">
+        <div class="input-group-addon"><i class="glyphicon glyphicon-bold"></i></div>
+        <input type="text" class="form-control" [formControl]="lastname" id="lname" placeholder="Last Name">
+      </div>
+      <div class="text-danger" *ngIf="registerForm.get('lastname').dirty && registerForm.get('lastname').errors">
+        <span class="col-sm-2"></span>
+        <span class="col-sm-10" style="padding:4px 0 0" *ngIf="registerForm.get('lastname').errors.required">
+          Please enter your lastname
+        </span>
+      </div>
+    </div>
+
+
+  </form>
+</div>
