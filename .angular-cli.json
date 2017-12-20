@@ -19,13 +19,13 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../expensewatch/node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../expensewatch/node_modules/toastr/build/toastr.min.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/toastr/build/toastr.min.css",
         "styles.css"
       ],
       "scripts": [
-        "../expensewatch/node_modules/jquery/dist/jquery.min.js",
-        "../expensewatch/node_modules/toastr/build/toastr.min.js"
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/toastr/build/toastr.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

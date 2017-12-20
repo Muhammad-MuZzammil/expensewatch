@@ -135,7 +135,7 @@ exports.expensetotal = function (req, res, next) {
     function (err, result) {
       if (err) {
         res.status(400).json({
-          success: true,
+          success: false,
           message: 'Error processing request ' + err
         });
       }

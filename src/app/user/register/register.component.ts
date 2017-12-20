@@ -1,9 +1,8 @@
-import { PasswordComponent } from './../password/password.component';
-import { ToastrService } from './../../common/toastr.service';
-import { Router } from '@angular/router';
-import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from './../../common/toastr.service';
+import { UserService } from './../user.service';
 
 function comparePassword(c: AbstractControl): { [key: string]: boolean | null } {
   let passwordControl = c.get('password');
@@ -38,7 +37,7 @@ export class RegisterComponent implements OnInit {
   email = new FormControl('', [Validators.email]);
   username = new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(16)]);
   password = new FormControl('', [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,12}$')]);
-  retypePass = new FormControl('', [Validators.required])
+  retypepass = new FormControl('', [Validators.required])
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -48,11 +47,10 @@ export class RegisterComponent implements OnInit {
       username: this.username,
       passwordGroup: this.fb.group({
         password: this.password,
-        retypepass: this.retypePass,
+        retypepass: this.retypepass,
       }, { validator: comparePassword })
     });
   }
-
 
   registerUser() {
     if (this.registerForm.dirty && this.registerForm.valid) {
