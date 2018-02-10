@@ -11,7 +11,7 @@ var user = require('./routes/user.js');
 var expense = require('./routes/expense.js');
 
 var port = process.env.PORT || config.serverport;
-// app.use(express.static(__dirname) + '../dist')
+app.use(express.static(__dirname) + '../dist')
 mongoose.connect(config.database, function (err) {
   if (err) {
     console.log('Error connecting database, Please check if MongoDB is running')
