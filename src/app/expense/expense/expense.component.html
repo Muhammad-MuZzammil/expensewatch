@@ -7,7 +7,9 @@
     <div class="form-group" [ngClass]="{'has-error':expenseForm.get('expdate').invalid && expenseForm.get('expdate').dirty}">
       <label for="expdt" class="col-sm-2 control-label">Date</label>
       <div class="input-group col-sm-10">
-        <div class="input-group-addon"><i class="glyphicon glyphicon-celender"></i></div>
+        <div class="input-group-addon">
+          <i class="glyphicon glyphicon-celender"></i>
+        </div>
         <input type="date" class="form-control" [formControl]="expdate" id="expdt" placeholder="yyyy-mm-dd">
       </div>
       <div class="text-danger" *ngIf="expenseForm.get('expdate').dirty && expenseForm.get('expdate').errors">
@@ -20,14 +22,16 @@
       </div>
     </div>
 
-    <div class="form-group" [ngClass]="{'has-error':expenseFom.get('expaccount').invalid && expenseForm.get('expaccount').dirty}">
+    <div class="form-group" [ngClass]="{'has-error':expenseForm.get('expaccount').invalid && expenseForm.get('expaccount').dirty}">
       <label for="exptyp" class="col-sm-2 control-label">Account</label>
       <div class="input-group col-sm-10">
-        <div class="input-group-addon "><i class="glyphicon glyphicon-list-alt"></i></div>
+        <div class="input-group-addon ">
+          <i class="glyphicon glyphicon-list-alt"></i>
+        </div>
         <select class="form-control" [formControl]="expaccount">
-        <option></option>
-        <option *ngFor="let a of acc">{{a}}</option>
-      </select>
+          <option></option>
+          <option *ngFor="let a of acc">{{a}}</option>
+        </select>
       </div>
       <div class="text-danger" *ngIf="expenseForm.get('expaccount').dirty && expenseForm.get('expaccount').errors">
         <span class="col-sm-2"></span>
