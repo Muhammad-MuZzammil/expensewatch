@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     username: this.username,
     password: this.password
   });
-  loginUser() {
+  loginUser(formdata: any) {
     if (this.loginForm.dirty && this.loginForm.valid) {
       this.authService.login(this.loginForm.value)
         .subscribe(data => {
