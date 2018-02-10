@@ -11,7 +11,7 @@ var user = require('./routes/user.js');
 var expense = require('./routes/expense.js');
 
 var port = process.env.PORT || config.serverport;
-app.use(express.static(__dirname) + '../dist')
+// app.use(express.static(__dirname) + '../dist')
 mongoose.connect(config.database, function (err) {
   if (err) {
     console.log('Error connecting database, Please check if MongoDB is running')
@@ -39,13 +39,13 @@ app.use(function (req, res, next) {
 
 // basic routes
 
-// app.get('/', function (req, res) {
-//   res.send('Expense watch API is runnning at http://localhost:' + port + '/api');
-// });
+app.get('/', function (req, res) {
+  res.send('Expense watch API is runnning at http://localhost:' + port + '/api');
+});
 
-app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname + "../dist/index.html"));
-})
+// app.get("/*", function (req, res) {
+//   res.sendFile(path.join(__dirname + "../dist/index.html"));
+// })
 
 app.post('/register', user.signup);
 
