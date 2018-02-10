@@ -39,9 +39,9 @@ app.use(function (req, res, next) {
 
 // basic routes
 
-app.get('/', function (req, res) {
-  res.send('Expense watch API is runnning at http://localhost:' + port + '/api');
-});
+// app.get('/', function (req, res) {
+//   res.send('Expense watch API is runnning at http://localhost:' + port + '/api');
+// });
 
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname + "../dist/index.html"));
