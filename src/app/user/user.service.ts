@@ -29,7 +29,6 @@ export class UserService {
     headers.append('Content-type', 'application/json');
     headers.append('Authorization', `${this.jwtToken}`);
     let options = new RequestOptions({ headers: headers });
-
     return this.http.get(`http://localhost:1978/api/user/${userid}`, options)
       .map((response: Response) => response.json())
       .catch(this.handleError);

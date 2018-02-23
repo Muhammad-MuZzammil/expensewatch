@@ -31,7 +31,8 @@ app.use(morgan('dev'));
 //Enable CORS from client-side
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader('Access-Control-Allow-Method', 'PUT,GET,POST,DELETE,OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST , PUT, PATCH, DELETE');
+  // res.setHeader('Access-Control-Allow-Method', 'PUT,GET,POST,DELETE,OPTIONS');
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Cridentials");
   res.setHeader("Access-Control-Allow-Cridentials", "true");
   next();
@@ -68,7 +69,7 @@ apiRoutes.get('/', function (req, res) {
   });
 });
 // User
-apiRoutes.post('/user/:id', user.getuserDetails); // API returns user Details
+apiRoutes.get('/user/:id', user.getuserDetails); // API returns user Details
 apiRoutes.put('/user/:id', user.updateUser); // API updates user Details
 apiRoutes.put('/password/:id', user.updatePassowrd); // API updates user password
 
